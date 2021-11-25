@@ -1,0 +1,12 @@
+#项目主要用于测试dubbo的负载均衡算法
+    1.把两个provider分别打包在本地上和阿里云的linux上，阿里云把host文件里的主机名映射为公网地址，格式为:公网地址:主机名，要不然内网可以访问不了
+    2.service是接口，consumer，两个provider都包含了service项目
+    3.consumer打包放在本地
+    4.tomcat开启dubbo，不开启也行，这个只是dubbo的一个可视化管理页面
+      用于查看provider/consumer的情况
+    5.修改dubbo可视化页面里的负载均衡算法，增加所有方法，然后这些方法改为轮询
+    6.进行测试，访问consumer里的访问
+    7.第一次进行访问，会访问第一个provider里的方法，也就是本地布置的provider项目里的方法
+    8.第二次进行访问，会访问第二个provider里的方法，也就是阿里云里布置的provider项目里的方法
+    9.测试完成
+    10.说的可能不大清楚，大概是这样的步骤
